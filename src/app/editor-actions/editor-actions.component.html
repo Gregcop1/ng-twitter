@@ -1,0 +1,13 @@
+<p class="writer-actions">
+  <span class="writer-actions-submit-block">
+    <span [ngClass]="{
+      'writer-actions-counter': true,
+      'writer-actions-counter--danger': isNearTheEnd,
+      'writer-actions-counter--alert': isBelowEnd
+    }">{{ remainingChars }}</span>
+    <button [ngClass]="{
+      'writer-actions-submit': true,
+      'writer-actions-submit--disabled': !isTweetable
+    }">Tweeter</button>
+  </span>
+</p>

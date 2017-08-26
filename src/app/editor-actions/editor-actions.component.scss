@@ -1,0 +1,29 @@
+@import '../../stylesheets/settings/colors';
+@import '../../stylesheets/settings/dimensions';
+@import '../../stylesheets/settings/fonts';
+
+.writer-actions {
+  position: relative;
+  text-align: right;
+}
+
+.writer-actions-submit-block {
+  .writer-actions-counter {
+    display: inline-block; margin: 0 20px;
+    transition: color 150ms linear;
+
+    &--danger, &--alert { font-weight: bold; }
+    &--danger { color: $dark-red; }
+    &--alert { color: $red; }
+  }
+
+  .writer-actions-submit {
+    border-radius: 20px; padding: 8px 16px; background: $medium-blue;
+    transition: background 150ms linear;
+    font-weight: $fw-bold; color: $white;
+
+    &--disabled { background: lighten($medium-blue, 20%); cursor: not-allowed; }
+    &:hover { text-decoration: none }
+    &:not(.writer-actions-submit--disabled):hover { background: $blue; }
+  }
+}

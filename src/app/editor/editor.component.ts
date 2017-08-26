@@ -3,11 +3,18 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-editor',
   template: `
-    <app-editor-input *ngIf="!focused" [(focusStatus)]="focused"></app-editor-input>
-    <app-editor-textarea *ngIf="focused" [(focusStatus)]="focused"></app-editor-textarea>
+    <div class="block writer-block">
+      <img [src]="user.email | gravatar" width="50" height="50" alt="" class="avatar"/>
+      <app-editor-input *ngIf="!focused" [(focusStatus)]="focused"></app-editor-input>
+      <app-editor-textarea *ngIf="focused" [(focusStatus)]="focused"></app-editor-textarea>
+      <app-editor-actions *ngIf="focused"></app-editor-actions>
+    </div>
   `,
-  styleUrls: ['./editor.component.css']
+  styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent {
-  focused = false;
+  focused = true;
+  user = {
+    email: 'gregcop1@gmail.com'
+  };
 }

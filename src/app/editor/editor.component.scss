@@ -1,0 +1,11 @@
+@import '../../stylesheets/settings/colors';
+@import '../../stylesheets/settings/dimensions';
+@import '../../stylesheets/settings/fonts';
+
+.block.writer-block {
+  position: relative; margin-bottom: 0; background: $bright-blue;
+
+  .avatar {
+    position: absolute; left: 12px; border-radius: 22px; width: 42px; height: 42px;
+  }
+}

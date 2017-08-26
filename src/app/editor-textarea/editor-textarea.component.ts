@@ -1,11 +1,12 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {EditorService} from '../editor.service';
 
 @Component({
   selector: 'app-editor-textarea',
   template: `
-    <textarea #field (blur)="changeFocus()" [(ngModel)]="fieldValue"></textarea>
+    <textarea #field (blur)="changeFocus()" [(ngModel)]="message" (ngModelChange)="changeMessage(field.value)"></textarea>
   `,
-  styleUrls: ['./editor-textarea.component.css']
+  styleUrls: ['./editor-textarea.component.scss']
 })
 export class EditorTextareaComponent implements OnInit {
   @Input() focusStatus: boolean;
@@ -13,16 +14,22 @@ export class EditorTextareaComponent implements OnInit {
 
   @ViewChild('field') field: ElementRef;
 
-  fieldValue = '';
+  message = '';
+
+  constructor(private editorService: EditorService) { }
+
+  ngOnInit() {
+    this.field.nativeElement.focus();
+    this.editorService.currentMessage.subscribe(message => this.message = message);
+  }
 
   changeFocus() {
-    if ('' === this.fieldValue) {
+    if ('' === this.message) {
       this.focusStatusChange.emit(false);
     }
   }
 
-  ngOnInit() {
-    this.field.nativeElement.focus();
+  changeMessage(message) {
+    this.editorService.changeMessage(message);
   }
-
 }

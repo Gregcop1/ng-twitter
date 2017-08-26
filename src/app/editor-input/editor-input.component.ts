@@ -5,7 +5,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   template: `
     <input type="text" (focus)="changeFocus()" />
   `,
-  styleUrls: ['./editor-input.component.css']
+  styleUrls: ['./editor-input.component.scss']
 })
 export class EditorInputComponent {
   @Input() focusStatus: boolean;

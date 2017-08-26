@@ -1,0 +1,16 @@
+@import '../stylesheets/settings/colors';
+@import '../stylesheets/settings/dimensions';
+
+.main-container {
+  padding: $page-padding 0;
+
+  .column {
+    display: inline-block; margin: 0 auto; vertical-align: top;
+    text-align: left;
+  }
+  .aside-primary,
+  .aside-secondary { width: 23%; }
+  .aside-primary { margin-right: $page-padding; }
+  .aside-secondary { margin-left: $page-padding; }
+  .main-content { width: 50%; }
+}
