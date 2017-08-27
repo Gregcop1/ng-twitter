@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./editor.component.scss']
 })
 export class EditorComponent {
-  focused = true;
+  focused = false;
   user = {
     email: 'gregcop1@gmail.com'
   };
